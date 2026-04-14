@@ -30,6 +30,16 @@ O objetivo é demonstrar conhecimentos práticos, projetos reais e habilidades t
 
 ---
 
+📈 Objetivos
+Consolidar conhecimentos em infraestrutura e cloud
+Demonstrar habilidades técnicas para o mercado
+Compartilhar soluções e boas práticas
+
+📞 Contato
+LinkedIn: https://www.linkedin.com/in/fl%C3%A1vio-augusto-oliveira-santana-370b2a102/
+Email: santanainfra@outlook.com
+
+---
 ## 📂 Estrutura do Projeto
 
 ```bash
@@ -38,3 +48,4 @@ O objetivo é demonstrar conhecimentos práticos, projetos reais e habilidades t
 ├── scripts/
 ├── documentacao/
 └── README.md
+
