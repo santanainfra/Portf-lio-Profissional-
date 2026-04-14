@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flávio Santana | Suporte N2 N3 | Cloud</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: url('img/datacenter.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Overlay escuro */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 8, 22, 0.75);
+    z-index: -1;
+}
+
+/* Canvas (luzes) */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* HEADER */
+header {
+    padding: 120px 10%;
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #00f7ff;
+    text-shadow: 0 0 20px #00f7ff;
+}
+
+header p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    margin-right: 10px;
+    padding: 12px 30px;
+    background: #00f7ff;
+    color: black;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: white;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 10%;
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    color: #00f7ff;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: rgba(0,255,255,0.05);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,255,255,0.3);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px #00f7ff;
+}
+
+ul {
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #000;
+    margin-top: 50px;
+    color: #aaa;
+    position: relative;
+    z-index: 1;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+    <h1>Flávio Santana</h1>
+    <p>Analista de Suporte N2 | N3 • Infraestrutura • Cloud Computing</p>
+
+    <a href="https://www.linkedin.com/in/fl%C3%A1vio-augusto-oliveira-santana-370b2a102/" target="_blank" class="btn">
+        LinkedIn
+    </a>
+
+    <a href="https://github.com/santanainfra?tab=repositories" target="_blank" class="btn">
+        GitHub
+    </a>
+</header>
+
+<section>
+    <h2>🔧 Suporte Nível 2</h2>
+    <div class="card">
+        <p>Atuação em diagnóstico avançado e resolução de incidentes escalados.</p>
+        <ul>
+            <li>Administração de servidores Windows/Linux</li>
+            <li>Active Directory e GPO</li>
+            <li>Switch e Redes</li>
+            <li>Análise de logs e troubleshooting</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>⚙️ Suporte Nível 3</h2>
+    <div class="card">
+        <p>Especialista em problemas críticos e melhorias estruturais.</p>
+        <ul>
+            <li>Arquitetura de infraestrutura</li>
+            <li>Virtualização (VMware / VirtualBox)</li>
+            <li>Otimização de performance</li>
+            <li>Implementação de projetos</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>☁️ Cloud Computing</h2>
+    <div class="card">
+        <p>Experiência em ambientes em nuvem e soluções híbridas.</p>
+        <ul>
+            <li>AWS / Azure</li>
+            <li>Backup em nuvem</li>
+            <li>Alta disponibilidade</li>
+            <li>Monitoramento e segurança</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    © 2026 - Portfólio Profissional | Especialista em Infraestrutura e Cloud
+</footer>
+
+<script>
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        speed: Math.random() * 2 + 0.5,
+        size: Math.random() * 2 + 1,
+        opacity: Math.random()
+    });
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+        p.y -= p.speed;
+
+        if (p.y < 0) {
+            p.y = canvas.height;
+            p.x = Math.random() * canvas.width;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0, 247, 255," + p.opacity + ")";
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "#00f7ff";
+        ctx.fill();
+    });
+
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            let dx = particles[i].x - particles[j].x;
+            let dy = particles[i].y - particles[j].y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 120) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = "rgba(0,247,255," + (1 - dist / 120) + ")";
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+    }
+
+    requestAnimationFrame(draw);
+}
+
+draw();
+
+window.addEventListener("resize", function(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+</body>
+</html>
